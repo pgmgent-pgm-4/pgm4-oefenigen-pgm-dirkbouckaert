@@ -1,4 +1,4 @@
-import Colors from '../components/Colors';
+import Colors from '../components/colors/Colors';
 
 const ColorsPage = () => {
   return (

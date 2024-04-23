@@ -1,17 +1,18 @@
 import { useState } from 'react';
-import { checkColor, getRandomHexColor } from '../lib/utils';
+import { checkColor, getRandomHexColor } from '../../lib/utils';
+import Color from './Color';
 
 const randomColors = [
   '#FFB6C1',
   '#00008B',
   '#7CFC00',
   '#48D1CC',
-  '#FFA07A',
-  '#ADFF2F',
-  '#90EE90',
-  '#778899',
-  '#9932CC',
-  '#E6E6FA',
+  // '#FFA07A',
+  // '#ADFF2F',
+  // '#90EE90',
+  // '#778899',
+  // '#9932CC',
+  // '#E6E6FA',
 ];
 
 const Colors = () => {
@@ -19,6 +20,7 @@ const Colors = () => {
   const [isBtnDisabled, setIsBtnDisabled] = useState(false);
 
   const handleAddColor = () => {
+    if (isBtnDisabled) return;
     setIsBtnDisabled(true);
     setTimeout(() => {
       let newColor = getRandomHexColor();
@@ -30,6 +32,7 @@ const Colors = () => {
   };
 
   const handleDeleteColor = () => {
+    if (isBtnDisabled) return;
     setIsBtnDisabled(true);
     setTimeout(() => {
       const randomIndex = Math.floor(Math.random() * colors.length);
@@ -44,8 +47,9 @@ const Colors = () => {
     <>
       <div className="mb-8 flex justify-center gap-4">
         <button
-          className={`w-36 rounded-lg px-4 py-2 text-white transition hover:opacity-90
-                      ${isBtnDisabled ? 'cursor-not-allowed bg-gray-400 hover:opacity-100' : 'bg-green-400'} `}
+          // className={`w-36 rounded-lg px-4 py-2 text-white transition hover:opacity-90
+          //             ${isBtnDisabled ? 'cursor-not-allowed bg-gray-400 hover:opacity-100' : 'bg-green-400'} `}
+          className="w-36 rounded-lg bg-green-400 px-4 py-2 text-white transition hover:opacity-90"
           onClick={handleAddColor}
           disabled={isBtnDisabled}
         >
@@ -53,8 +57,7 @@ const Colors = () => {
         </button>
 
         <button
-          className={`w-36 rounded-lg px-4 py-2 text-white transition hover:opacity-90
-                      ${isBtnDisabled ? 'cursor-not-allowed bg-gray-400 hover:opacity-100' : 'bg-red-400'}`}
+          className="w-36 rounded-lg bg-red-400 px-4 py-2 text-white transition hover:opacity-90"
           onClick={handleDeleteColor}
           disabled={isBtnDisabled}
         >
@@ -64,11 +67,7 @@ const Colors = () => {
 
       <div className="flex flex-wrap gap-4">
         {colors.map((color) => (
-          <div
-            className="h-24 w-24 rounded-full"
-            key={color}
-            style={{ backgroundColor: color }}
-          ></div>
+          <Color key={color} color={color} />
         ))}
       </div>
     </>
