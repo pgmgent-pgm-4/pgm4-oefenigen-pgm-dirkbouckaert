@@ -1,0 +1,17 @@
+.beerlist {
+  list-style: none;
+  padding-left: 0;
+}
+
+.beeritem {
+  margin-block: 0.5rem;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 1px 2px 4px 2px hsl(0, 0%, 90%);
+}
+
+.beertitle {
+  font-size: 1.5rem;
+  margin: 0;
+}

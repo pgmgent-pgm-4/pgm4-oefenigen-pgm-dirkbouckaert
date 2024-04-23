@@ -18,6 +18,11 @@
   .my-container {
     @apply container prose mx-auto w-[calc(100vw-4rem)] pt-8;
   }
+
+  .my-container-no-prose {
+    @apply container mx-auto w-[calc(100vw-4rem)] pt-8;
+  }
+
   .btn {
     @apply inline-block rounded-md px-4 py-2 text-sm font-semibold uppercase tracking-wider transition focus:outline-none focus:ring sm:text-base;
   }
