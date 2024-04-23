@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-const ToastContainer = styled.div(({ props }) => ({
+const ToastContainer = styled.div((props) => ({
   marginBlock: '1rem',
   padding: '1rem',
   borderRadius: '0.25rem',
@@ -15,8 +15,9 @@ const ToastContainer = styled.div(({ props }) => ({
           : '#ccc',
 }));
 
-const Toast = ({ children }) => {
-  return <ToastContainer>{children}</ToastContainer>;
+const Toast = (props) => {
+  const { children } = props;
+  return <ToastContainer {...props}>{children}</ToastContainer>;
 };
 
 export default Toast;
