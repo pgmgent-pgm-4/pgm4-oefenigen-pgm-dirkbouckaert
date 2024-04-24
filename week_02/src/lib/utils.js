@@ -1,3 +1,6 @@
+import clsx from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
 /**
  * Get a random color in hexadecimal notation.
  * Source: https://css-tricks.com/snippets/javascript/random-hex-color/
@@ -15,3 +18,11 @@ export function checkColor(color) {
   }
   return color;
 }
+
+
+/**
+ * Source:
+ * - https://www.znovandap.com/blog/post/cn-utility-function
+ * - https://www.youtube.com/watch?v=re2JFITR7TI 
+ */
+export const cn = (...classes) => twMerge(clsx(classes));

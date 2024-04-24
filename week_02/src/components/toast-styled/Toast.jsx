@@ -6,21 +6,6 @@ import { FaExclamationTriangle } from 'react-icons/fa';
 import { FaExclamationCircle } from 'react-icons/fa';
 import { FaInfoCircle } from 'react-icons/fa';
 
-// const ToastContainer = styled.div((props) => ({
-//   marginBlock: '1rem',
-//   padding: '1rem',
-//   borderRadius: '0.25rem',
-//   backgroundColor: props.success
-//     ? 'green'
-//     : props.warning
-//       ? 'yellow'
-//       : props.error
-//         ? 'red'
-//         : props.info
-//           ? 'blue'
-//           : '#ccc',
-// }));
-
 const ToastContainer = styled.div`
   display: flex;
   align-items: flex-start;
@@ -28,15 +13,25 @@ const ToastContainer = styled.div`
   margin-block: 1rem;
   padding: 1rem;
   border-radius: 0.25rem;
+  color: ${(props) =>
+    props.success
+      ? 'hsl(120, 50%, 30%)'
+      : props.warning
+        ? 'hsl(45, 75%, 40%)'
+        : props.error
+          ? 'hsl(0, 50%, 50%)'
+          : props.info
+            ? 'hsl(210, 75%, 40%)'
+            : 'hsl(0, 0%, 40%)'};
   background-color: ${(props) =>
     props.success
-      ? 'hsl(120, 50%, 75%)'
+      ? 'hsl(120, 50%, 85%)'
       : props.warning
-        ? 'hsl(40, 70%, 75%)'
+        ? 'hsl(40, 70%, 85%)'
         : props.error
-          ? 'hsl(0, 50%, 75%)'
+          ? 'hsl(0, 50%, 85%)'
           : props.info
-            ? 'hsl(210, 75%, 75%)'
+            ? 'hsl(210, 75%, 85%)'
             : 'hsl(0, 0%, 92%)'};
   border-left: 0.5rem solid;
   border-color: ${(props) =>
@@ -63,22 +58,6 @@ const ToastInfo = styled.div`
   }
 `;
 
-const TitleSuccess = styled.span`
-  color: hsl(120, 50%, 40%);
-`;
-
-const TitleWarning = styled.span`
-  color: hsl(40, 70%, 50%);
-`;
-
-const TitleError = styled.span`
-  color: hsl(0, 50%, 50%);
-`;
-
-const TitleInfo = styled.span`
-  color: hsl(210, 75%, 40%);
-`;
-
 const Toast = (props) => {
   const { children } = props;
   return (
@@ -97,13 +76,13 @@ const Toast = (props) => {
 
       <ToastInfo>
         {props.success ? (
-          <TitleSuccess>Success</TitleSuccess>
+          <span>Success</span>
         ) : props.warning ? (
-          <TitleWarning>Warning</TitleWarning>
+          <span>Warning</span>
         ) : props.error ? (
-          <TitleError>Error</TitleError>
+          <span>Error</span>
         ) : props.info ? (
-          <TitleInfo>Info</TitleInfo>
+          <span>Info</span>
         ) : (
           ''
         )}

@@ -11,6 +11,22 @@
   h5 {
     @apply dark:!text-white;
   }
+
+  h1 {
+    @apply mb-6 text-4xl font-bold;
+  }
+  h2 {
+    @apply mb-6 text-3xl font-semibold;
+  }
+  h3 {
+    @apply mb-6 text-2xl font-semibold;
+  }
+  h4 {
+    @apply mb-6 text-xl font-semibold;
+  }
+  h5 {
+    @apply mb-6 text-lg font-semibold;
+  }
 }
 
 @layer components {
