@@ -4,10 +4,41 @@
 
 @layer base {
   /* Add default base styles for specific HTML elements,  */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    @apply dark:!text-white;
+  }
+
+  h1 {
+    @apply mb-6 text-4xl font-bold;
+  }
+  h2 {
+    @apply mb-6 text-3xl font-semibold;
+  }
+  h3 {
+    @apply mb-6 text-2xl font-semibold;
+  }
+  h4 {
+    @apply mb-6 text-xl font-semibold;
+  }
+  h5 {
+    @apply mb-6 text-lg font-semibold;
+  }
 }
 
 @layer components {
   /* Add custom components */
+  .my-container {
+    @apply container prose mx-auto w-[calc(100vw-4rem)] pt-8;
+  }
+
+  .my-container-no-prose {
+    @apply container mx-auto w-[calc(100vw-4rem)] pt-8;
+  }
+
   .btn {
     @apply inline-block rounded-md px-4 py-2 text-sm font-semibold uppercase tracking-wider transition focus:outline-none focus:ring sm:text-base;
   }
