@@ -8,17 +8,20 @@ const Navbar = () => {
         React
       </Link>
       <div className="flex flex-wrap gap-4">
-        {routes.map((item) => (
-          <NavLink
-            key={item.name}
-            className={({ isActive }) =>
-              isActive ? 'text-white' : 'text-gray-400'
-            }
-            to={item.path}
-          >
-            {item.name}
-          </NavLink>
-        ))}
+        {routes.map(
+          (item) =>
+            item.addToNavbar && (
+              <NavLink
+                key={item.name}
+                className={({ isActive }) =>
+                  isActive ? 'text-white' : 'text-gray-400'
+                }
+                to={item.path}
+              >
+                {item.name}
+              </NavLink>
+            )
+        )}
       </div>
     </nav>
   );
