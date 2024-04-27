@@ -5,17 +5,17 @@ import {
 } from 'react-router-dom';
 
 // Layouts
-import MainLayout from './layouts/MainLayout';
+import MainLayout from '../layouts/MainLayout';
 
 // Pages
-import navItems from './lib/navItems';
-import ErrorPage from './pages/error/ErrorPage';
-import NotFoundPage from './pages/error/NotFoundPage';
+import routes from './routes';
+import ErrorPage from '../pages/error/ErrorPage';
+import NotFoundPage from '../pages/error/NotFoundPage';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<MainLayout />} errorElement={<ErrorPage />}>
-      {navItems.map(({ name, path, element }) => (
+      {routes.map(({ name, path, element }) => (
         <Route key={name} path={path} element={element} />
       ))}
       <Route path="*" element={<NotFoundPage />} />

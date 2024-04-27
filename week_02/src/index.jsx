@@ -1,15 +1,15 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 
 // Styles
-import './index.css'
+import './index.css';
 
 // Router
-import { RouterProvider } from "react-router-dom";
-import router from "./router";
+import { RouterProvider } from 'react-router-dom';
+import router from './routes/router';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RouterProvider router={router} />
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);

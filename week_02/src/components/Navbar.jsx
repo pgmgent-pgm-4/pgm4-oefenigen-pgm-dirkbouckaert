@@ -1,5 +1,5 @@
 import { Link, NavLink } from 'react-router-dom';
-import navItems from '../lib/navItems.jsx';
+import routes from '../routes/routes.jsx';
 
 const Navbar = () => {
   return (
@@ -8,7 +8,7 @@ const Navbar = () => {
         Week 2
       </Link>
       <div className="flex flex-wrap gap-4">
-        {navItems.map((item) => (
+        {routes.map((item) => (
           <NavLink
             key={item.name}
             className={({ isActive }) =>
