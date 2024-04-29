@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <nav className="flex items-center justify-between gap-6 bg-black p-6">
       <Link className="text-2xl font-semibold text-white" to="/">
-        Week 3
+        {import.meta.env.VITE_APP_NAME}
       </Link>
       <div className="flex flex-wrap gap-4">
         {routes.map(
