@@ -6,18 +6,12 @@ import students from '../data/students';
 // Components
 import StudentList from '../components/students/StudentList';
 import StudentSearchForm from '../components/students/StudentSearchForm';
+import { cn, sortStudentsByFirstName } from '../lib/utils';
 
 const StudentsPage = () => {
-  students.sort((a, b) => {
-    if (a.firstName < b.firstName) {
-      return -1;
-    }
-    if (a.firstName > b.firstName) {
-      return 1;
-    }
-    return 0;
-  });
-  const [filteredStudents, setFilteredStudents] = useState(students);
+  const [filteredStudents, setFilteredStudents] = useState(
+    sortStudentsByFirstName(students)
+  );
   const [search, setSearch] = useState('');
 
   useEffect(() => {
@@ -39,7 +33,13 @@ const StudentsPage = () => {
   }, [search]);
 
   return (
-    <div className="my-container-no-prose">
+    <div
+      className={cn(
+        'my-container-no-prose max-w-4xl',
+        'sm:w-[calc(100vw-6rem)]',
+        'md:w-[calc(100vw-8rem)]'
+      )}
+    >
       <h1>Students</h1>
 
       <StudentSearchForm setSearch={setSearch} />

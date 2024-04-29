@@ -1,6 +1,7 @@
+import StudentDetail from '../components/students/StudentDetail';
 import Home from '../pages/Home';
 import ProductsPage from '../pages/ProductsPage';
-import StudentPage from '../pages/StudentsPage';
+import StudentsPage from '../pages/StudentsPage';
 
 export default [
   { addToNavbar: true, name: 'Home', path: '/', element: <Home /> },
@@ -14,6 +15,12 @@ export default [
     addToNavbar: true,
     name: 'Students',
     path: '/students',
-    element: <StudentPage />,
+    element: <StudentsPage />,
+  },
+  {
+    addToNavbar: false,
+    name: 'Student',
+    path: '/students/:id',
+    element: <StudentDetail />,
   },
 ];

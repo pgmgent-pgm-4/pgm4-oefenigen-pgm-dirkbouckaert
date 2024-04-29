@@ -11,7 +11,7 @@ const students = [
     "firstName": "Henry",
     "lastName": "Kelley",
     "gender": "male",
-    "dayOfBirth": -773861921587,
+    "dayOfBirth": 773861921587,
     "createdAt": 1050981639367,
     "nationality": "AU",
     "cell": "0408-099-815",

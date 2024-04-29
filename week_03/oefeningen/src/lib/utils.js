@@ -12,3 +12,20 @@ import { twMerge } from 'tailwind-merge';
  * npm install -D clsx tailwind-merge
  */
 export const cn = (...classes) => twMerge(clsx(classes));
+
+/**
+ * Sort students by first name
+ * @param {array} students 
+ */
+export const sortStudentsByFirstName = (students) => {
+  return students.sort((a, b) => {
+    if (a.firstName < b.firstName) {
+      return -1;
+    }
+    if (a.firstName > b.firstName) {
+      return 1;
+    }
+    return 0;
+  });
+
+}
