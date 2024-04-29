@@ -1,5 +1,6 @@
 import StudentDetail from '../components/students/StudentDetail';
 import Home from '../pages/Home';
+import ParkingPage from '../pages/ParkingPage';
 import ProductsPage from '../pages/ProductsPage';
 import StudentsPage from '../pages/StudentsPage';
 
@@ -22,5 +23,11 @@ export default [
     name: 'Student',
     path: '/students/:id',
     element: <StudentDetail />,
+  },
+  {
+    addToNavbar: true,
+    name: 'Parking',
+    path: '/parking',
+    element: <ParkingPage />,
   },
 ];
