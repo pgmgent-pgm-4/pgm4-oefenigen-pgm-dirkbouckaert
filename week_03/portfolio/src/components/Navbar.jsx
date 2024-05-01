@@ -23,7 +23,7 @@ const Navbar = () => {
                     'border-b-2 border-transparent px-4 py-2 transition hover:border-b-2 hover:border-lime-700',
                     isActive && 'border-b-2 border-lime-700',
                     item.path === '/contact' &&
-                      'btn btn-secondary hover:bordertransparent border-b-2 border-transparent'
+                      'btn btn-secondary border-b-2 border-transparent hover:border-transparent'
                   )
                 }
                 to={item.path}
