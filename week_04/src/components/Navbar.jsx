@@ -1,7 +1,10 @@
 import { Link, NavLink } from 'react-router-dom';
 import routes from '../routes/routes.jsx';
+import { useAuthContext } from '../contexts/AuthContext.jsx';
 
 const Navbar = () => {
+  const { user, logout } = useAuthContext();
+
   return (
     <nav className="bg-black py-4">
       <div className="app-container flex items-center justify-between gap-6">
@@ -9,9 +12,15 @@ const Navbar = () => {
           React
         </Link>
         <div className="flex flex-wrap gap-4">
-          {routes.map(
-            (item) =>
-              item.addToNavbar && (
+          {routes.map((item) => {
+            if (item.path == '/login' && user) {
+              return (
+                <button key="logout" className="text-gray-400" onClick={logout}>
+                  Logout
+                </button>
+              );
+            } else if (item.addToNavbar) {
+              return (
                 <NavLink
                   key={item.name}
                   className={({ isActive }) =>
@@ -21,8 +30,9 @@ const Navbar = () => {
                 >
                   {item.name}
                 </NavLink>
-              )
-          )}
+              );
+            }
+          })}
         </div>
       </div>
     </nav>

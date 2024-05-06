@@ -11,12 +11,15 @@ import './index.css';
 // Router
 import { RouterProvider } from 'react-router-dom';
 import router from './routes/router';
+import { AuthProvider } from './contexts/AuthContext';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <ThemeProvider>
-      <RouterProvider router={router} />
-      <ThemeToggle />
-    </ThemeProvider>{' '}
+    <AuthProvider>
+      <ThemeProvider>
+        <RouterProvider router={router} />
+        <ThemeToggle />
+      </ThemeProvider>
+    </AuthProvider>
   </React.StrictMode>
 );
