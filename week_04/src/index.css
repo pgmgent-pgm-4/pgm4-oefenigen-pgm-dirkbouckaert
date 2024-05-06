@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Add default base styles for specific HTML elements,  */
+  html.dark {
+    @apply bg-gray-800 text-white;
+  }
+}
+
+@layer components {
+  /* Add custom components */
+  .app-container {
+    @apply container mx-auto mt-4 w-[calc(100vw-3rem)] sm:w-[calc(100vw-6rem)];
+  }
+  .btn {
+    @apply inline-block rounded-md px-4 py-2 text-sm font-semibold uppercase tracking-wider transition focus:outline-none focus:ring sm:text-base;
+  }
+
+  .btn-primary {
+    @apply bg-blue-600 text-white hover:bg-blue-500 focus:ring-blue-400 active:bg-blue-600;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-300 text-gray-800 hover:bg-gray-200 focus:ring-gray-300 focus:ring-opacity-50 active:bg-gray-400;
+  }
+}
+
+@layer utilities {
+  /* Add custom utilities */
+}
