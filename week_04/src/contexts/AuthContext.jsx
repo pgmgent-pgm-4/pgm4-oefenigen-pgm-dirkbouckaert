@@ -1,14 +1,17 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-import { Navigate } from 'react-router-dom';
 
 const AuthContext = createContext();
 
 export const useAuthContext = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(
-    JSON.parse(localStorage.getItem('pgmgent.user'))
-  );
+  const [isAuthReady, setIsAuthReady] = useState(false);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    setUser(JSON.parse(localStorage.getItem('pgmgent.user')));
+    setIsAuthReady(true);
+  }, []);
 
   const login = (user) => {
     setUser(user);
@@ -20,12 +23,8 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem('pgmgent.user');
   };
 
-  useEffect(() => {
-    // console.log('user:', user);
-  }, []);
-
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ isAuthReady, user, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

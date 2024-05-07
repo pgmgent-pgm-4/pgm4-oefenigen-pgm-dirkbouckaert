@@ -1,15 +1,19 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { API_URL_USERS } from '../../lib/consts';
 import { useAuthContext } from '../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const navigate = useNavigate();
+  const { login, user } = useAuthContext();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState();
 
-  const { login } = useAuthContext();
-  const navigate = useNavigate();
+  useEffect(() => {
+    if (user) navigate('/');
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
