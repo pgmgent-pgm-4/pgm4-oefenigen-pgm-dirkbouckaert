@@ -1,9 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 
-// Context
+// Theme context
 import { ThemeProvider } from './contexts/ThemeContext';
 import ThemeToggle from './components/ThemeToggle';
+
+// Apollo Client
+import { HYGRAPH_URL } from './lib/consts';
+const apolloClient = new ApolloClient({
+  uri: HYGRAPH_URL,
+  cache: new InMemoryCache(),
+});
 
 // Styles
 import './index.css';
@@ -14,12 +22,12 @@ import router from './routes/router';
 import { AuthProvider } from './contexts/AuthContext';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  <ApolloProvider client={apolloClient}>
     <AuthProvider>
       <ThemeProvider>
         <RouterProvider router={router} />
         <ThemeToggle />
       </ThemeProvider>
     </AuthProvider>
-  </React.StrictMode>
+  </ApolloProvider>
 );
