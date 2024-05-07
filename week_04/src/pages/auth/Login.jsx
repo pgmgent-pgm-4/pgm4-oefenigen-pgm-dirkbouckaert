@@ -2,13 +2,15 @@ import { useEffect, useState } from 'react';
 import { API_URL_USERS } from '../../lib/consts';
 import { useAuthContext } from '../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import LoginForm from '../../components/auth/LoginForm';
 
 const Login = () => {
   const navigate = useNavigate();
   const { login, user } = useAuthContext();
-
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+  });
   const [error, setError] = useState();
 
   useEffect(() => {
@@ -18,7 +20,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const res = await fetch(
-      `${API_URL_USERS}?email=${email}&password=${password}`
+      `${API_URL_USERS}?email=${formData.email}&password=${formData.password}`
     );
     const data = await res.json();
     if (!data || data.length === 0)
@@ -34,33 +36,11 @@ const Login = () => {
 
       {error && <p className="my-6 text-red-500">{error.message}</p>}
 
-      <form onSubmit={handleSubmit} className="my-8 max-w-md space-y-6">
-        <div className="flex flex-col gap-2">
-          <label htmlFor="email">Email</label>
-          <input
-            className="rounded-lg"
-            type="email"
-            name="email"
-            id="email"
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div className="flex flex-col gap-2">
-          <label htmlFor="password">Password</label>
-          <input
-            className="rounded-lg"
-            type="password"
-            name="password"
-            id="password"
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit" className="btn btn-primary">
-          Login
-        </button>
-      </form>
+      <LoginForm
+        formData={formData}
+        setFormData={setFormData}
+        handleSubmit={handleSubmit}
+      />
     </main>
   );
 };
