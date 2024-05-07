@@ -14,13 +14,19 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = (user) => {
-    setUser(user);
+    // Update storage
     localStorage.setItem('pgmgent.user', JSON.stringify(user));
+    // Update state
+    setUser(user);
+    setIsAuthReady(true);
   };
 
   const logout = () => {
-    setUser(null);
+    // Update storage
     localStorage.removeItem('pgmgent.user');
+    // Update state
+    setUser(null);
+    setIsAuthReady(true);
   };
 
   return (
