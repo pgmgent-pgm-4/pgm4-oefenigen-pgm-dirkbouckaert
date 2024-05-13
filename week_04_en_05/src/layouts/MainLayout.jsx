@@ -3,6 +3,7 @@ import { useAuthContext } from '../contexts/AuthContext';
 
 // Components
 import Navbar from '../components/Navbar';
+import LanguageToggle from '../components/language/LanguageToggle';
 
 const MainLayout = () => {
   const { isAuthReady } = useAuthContext();
@@ -12,6 +13,7 @@ const MainLayout = () => {
       {isAuthReady && (
         <>
           <Navbar />
+          <LanguageToggle />
           <Outlet />
         </>
       )}

@@ -20,14 +20,17 @@ import './index.css';
 import { RouterProvider } from 'react-router-dom';
 import router from './routes/router';
 import { AuthProvider } from './contexts/AuthContext';
+import { LanguageProvider } from './contexts/LanguageContext';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <ApolloProvider client={apolloClient}>
     <AuthProvider>
-      <ThemeProvider>
-        <RouterProvider router={router} />
-        <ThemeToggle />
-      </ThemeProvider>
+      <LanguageProvider>
+        <ThemeProvider>
+          <RouterProvider router={router} />
+          <ThemeToggle />
+        </ThemeProvider>
+      </LanguageProvider>
     </AuthProvider>
   </ApolloProvider>
 );

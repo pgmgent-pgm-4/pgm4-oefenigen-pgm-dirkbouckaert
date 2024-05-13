@@ -6,7 +6,7 @@ const Navbar = () => {
   const { user, logout } = useAuthContext();
 
   return (
-    <nav className="bg-black py-4">
+    <nav className="relative bg-black py-4">
       <div className="app-container flex items-center justify-between gap-6">
         <Link className="text-2xl font-semibold text-white" to="/">
           React
