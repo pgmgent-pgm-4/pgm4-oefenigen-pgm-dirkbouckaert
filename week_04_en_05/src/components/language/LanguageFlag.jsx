@@ -4,7 +4,6 @@ import { cn } from '../../lib/utils';
 
 const LanguageFlag = ({ className }) => {
   const { language } = useLanguageContext();
-  console.log('language:', language);
 
   return (
     <ReactCountryFlag

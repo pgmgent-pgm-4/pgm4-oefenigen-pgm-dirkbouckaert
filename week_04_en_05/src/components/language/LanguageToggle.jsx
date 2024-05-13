@@ -13,9 +13,9 @@ const LanguageToggle = () => {
     <div className="app-container flex justify-between">
       <LanguageFlag className="h-12 w-12" />
 
-      <select className="py-1 text-sm" onChange={handleChange}>
+      <select className="py-1 text-sm" value={language} onChange={handleChange}>
         {LANGUAGES.map(({ id, name }) => (
-          <option value={id} key={id} selected={id === language}>
+          <option value={id} key={id}>
             {name}
           </option>
         ))}
