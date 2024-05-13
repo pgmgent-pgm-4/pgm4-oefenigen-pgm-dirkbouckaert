@@ -17,6 +17,13 @@ const Login = () => {
     if (user) navigate('/');
   }, []);
 
+  const handleOnChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const res = await fetch(
@@ -38,7 +45,7 @@ const Login = () => {
 
       <LoginForm
         formData={formData}
-        setFormData={setFormData}
+        handleOnChange={handleOnChange}
         handleSubmit={handleSubmit}
       />
     </main>

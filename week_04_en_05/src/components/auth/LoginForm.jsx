@@ -1,4 +1,4 @@
-const LoginForm = ({ formData, setFormData, handleSubmit }) => {
+const LoginForm = ({ formData, handleOnChange, handleSubmit }) => {
   return (
     <form onSubmit={handleSubmit} className="my-8 max-w-md space-y-6">
       <div className="flex flex-col gap-2">
@@ -8,7 +8,7 @@ const LoginForm = ({ formData, setFormData, handleSubmit }) => {
           type="email"
           name="email"
           id="email"
-          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+          onChange={handleOnChange}
           required
         />
       </div>
@@ -19,9 +19,7 @@ const LoginForm = ({ formData, setFormData, handleSubmit }) => {
           type="password"
           name="password"
           id="password"
-          onChange={(e) =>
-            setFormData({ ...formData, password: e.target.value })
-          }
+          onChange={handleOnChange}
           required
         />
       </div>
