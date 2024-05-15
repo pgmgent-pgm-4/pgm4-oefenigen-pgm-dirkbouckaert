@@ -1,5 +1,6 @@
 import Home from '../pages/Home';
 import Login from '../pages/auth/Login';
+import CountryMapPage from '../pages/country-map/CountryMapPage';
 import EmojiPage from '../pages/emojis/EmojiPage';
 import Todos from '../pages/todos/Todos';
 
@@ -11,6 +12,12 @@ export default [
     name: 'Emojis',
     path: '/emojis',
     element: <EmojiPage />,
+  },
+  {
+    addToNavbar: true,
+    name: 'Landkaart',
+    path: '/landkaart',
+    element: <CountryMapPage />,
   },
   { addToNavbar: true, name: 'Login', path: '/login', element: <Login /> },
   { addToNavbar: false, name: 'Logout', path: '/logout', element: null },

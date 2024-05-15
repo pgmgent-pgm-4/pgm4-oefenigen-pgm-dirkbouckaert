@@ -11,3 +11,5 @@ export const LANGUAGES = [
   { id: 'es', name: 'Español' },
   { id: 'de', name: 'Deutsch' },
 ];
+
+export const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN;
